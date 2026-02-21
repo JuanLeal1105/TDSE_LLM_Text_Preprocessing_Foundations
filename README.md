@@ -31,6 +31,36 @@ This project demonstrates the essential preprocessing pipeline required to trans
    - Hyperparameter Experimentation:
      A detailed experiment analyzing the trade-off between computational cost and data augmentation by altering the `stride` parameter.
 
+## **Useful Concepts**
+### **Tokenization**
+Tokenization bridges human language and machine learning. While naive word-level splitting results in massive, inefficient vocabularies, modern models use Byte Pair Encoding (BPE). BPE efficiently handles rare words by breaking them into subword units, ensuring there is never an "unknown token" while keeping the vocabulary size manageable.
+
+### **Embeddings**
+Embeddings are dense vector representations that capture semantic meaning and geometric relationships. Because the Transformer architecture is naturally permutation-invariant, Positional Embeddings are added to the token vectors so the model can understand causality and the order of operations—a critical feature for agentic systems.
+
+### **Sliding Window**
+LLMs learn via self-supervised next-token prediction using overlapping context windows. Each sample teaches the model to predict token N+1 given tokens 1 to N.
+
+## **Key Experiments Results**
+The `embeddings.ipynb` notebook includes a specific experiment testing the relationship between sliding window parameters and dataset generation.
+
+### **Hypothesis Tested:**
+By decreasing the `stride` (increasing the overlap between chunks), we can linearly increase the size of our training dataset without requiring additional raw text. We evaluated:
+1. Inverse Relationship: The number of training samples will be inversely proportional to the stride.
+2. Data Augmentation: A stride of 1 will result in the maximum possible data efficiency, effectively "augmenting" the dataset by forcing the model to learn the same token's meaning across every possible position in the context window.
+
+### **Experimental Results**
+- **Context Length = 4**
+  - `stride=4` (0% overlap): **1,286 samples** | Efficiency: **1.00x**
+  - `stride=2` (50% overlap): **2,571 samples** | Efficiency: **2.00x**
+  - `stride=1` (75% overlap): **5,141 samples** | Efficiency: **4.00x**
+
+- **Context Length = 8**
+  - `stride=8` (0% overlap): **643 samples** | Efficiency: **1.00x**
+  - `stride=4` (50% overlap): **1,285 samples** | Efficiency: **2.00x**
+
+**Conclusion:**
+The results strongly confirm the hypothesis.
 
      
 
