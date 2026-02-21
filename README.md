@@ -9,6 +9,16 @@ Hands-on exploration of text preprocessing, tokenization fundamentals, and embed
 
 This project demonstrates the essential preprocessing pipeline required to transform raw text into mathematical representations that neural networks can process. It covers tokenization strategies, embedding generation, and data sampling techniques that form the foundation of modern language models and agentic AI systems.
 
+## The Training Dataset
+To ground our experiments in a practical scenario, this lab utilizes **"The Verdict"** (a short story by Edith Wharton) as our primary source material. Stored in `the-verdict.txt`, this concise piece provides exactly 5,145 tokens of raw text.
+
+Rather than just reading the text, we use it as a sandbox to map out the entire LLM data ingestion pipeline:
+
+1. Data Ingestion & Cleaning: We begin by extracting the raw strings, addressing basic punctuation, and formatting the text for machine ingestion.
+2. Algorithmic Tokenization: The story serves as a testing ground to benchmark naive word-level splitting against production-grade Byte Pair Encoding (BPE).
+3. Context Generation: We slice the narrative into overlapping sequences (sliding windows) to artificially construct a dataset of input-target pairs for next-token prediction.
+4. Vectorization: Finally, the extracted tokens are mapped into a 256-dimensional semantic space, turning characters on a page into mathematical representations of meaning and sequence position.
+
 ## **Prerequisites**
 
 To run this laboratory you will need:
