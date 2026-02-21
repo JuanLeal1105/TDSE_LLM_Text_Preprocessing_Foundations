@@ -9,6 +9,43 @@ Hands-on exploration of text preprocessing, tokenization fundamentals, and embed
 
 This project demonstrates the essential preprocessing pipeline required to transform raw text into mathematical representations that neural networks can process. It covers tokenization strategies, embedding generation, and data sampling techniques that form the foundation of modern language models and agentic AI systems.
 
+## **Prerequisites**
+
+To run this laboratory you will need:
+
+- Python 3.8 or higher (As a recomendation, the newer versions are better due to the compatibility with the creations of virtual environments in multiple IDEs)
+- Jupyter Notebook or JupyterLab
+- The following Python libraries:
+  - `numpy`
+  - `matplotlib`
+  - `tiktoken`
+  - `torch`
+
+You can add the previous libraries by using the following command:
+```
+pip install torch tiktoken numpy matplotlib
+```
+ 
+## Execution
+To run this laboratory, follow the steps below:
+
+1. Clone the repository and navigate to the folder:
+   ```
+   git clone <Repository_URL>
+   cd <Repository_name>
+   ```
+
+2. Setup the virtual environment
+   ```
+   python -m venv venv
+   source venv/bin/activate       # On Linux/Mac
+   venv\Scripts\activate          # On Windows
+   ```
+
+3. Start running each block of code so you can see the results
+
+___
+
 ## **Notebooks (What you'll find in the lab)**
 1. `ch2.ipynb` - Working with Text Data
 
